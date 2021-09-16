@@ -1,0 +1,18 @@
+{
+    "name": "novuslogics/admin_panel",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Novuslogics\\AdminPanel\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Novus Logics",
+            "email": "developers@novuslogics.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
