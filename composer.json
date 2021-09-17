@@ -14,12 +14,5 @@
         "psr-4": {
             "Novuslogics\\AdminPanel\\": "src/"
         }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "NovusLogics\\AdminPanel\\AdminPanelServiceProvider"
-            ]
-        }
     }
 }
