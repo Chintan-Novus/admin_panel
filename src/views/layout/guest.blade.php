@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     {{-- Page Title --}}
-    <title>{!! BladeHelper::pageTitle($pageTitle ?? null) !!}</title>
+    <title>{{ config('app.name') }}</title>
 
     {{-- Meta data --}}
     @if (isset($pageMeta))
@@ -22,7 +22,7 @@
     @endif
 
     {{-- Styles --}}
-    @if (config('admin_panel.dark_mode') || Session::get('dark_mode'))
+    @if (config('admin_panel.dark_mode'))
         @foreach(config('admin_panel.resources.css.dark') as $style)
             <link href="{{ asset($style) }}" rel="stylesheet" type="text/css"/>
         @endforeach
@@ -35,44 +35,27 @@
     @stack('styles')
 
 </head>
-@php
-    $toolbarEnabled = !empty($toolbarTitle) || !empty($toolbarButtons);
-@endphp
-
-<body id="kt_body" class="page-loading-enabled page-loading header-fixed header-tablet-and-mobile-fixed aside-enabled aside-fixed {{ ($toolbarEnabled) ? "toolbar-enabled toolbar-fixed" : "" }}" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
-
-{{-- Loader --}}
-@include('layout.loader')
+<body id="kt_body" class="bg-body">
 
 <div class="d-flex flex-column flex-root">
-    <div class="page d-flex flex-row flex-column-fluid">
+    <div class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed" style="background-image: url(assets/media/illustrations/sketchy-1/14.png">
+        <div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
 
-        {{-- Sidebar --}}
-        @include('layout.aside')
+            <a href="{{ route('welcome') }}" class="mb-12">
+                <img alt="Logo" src="{{ asset('assets/media/logos/logo-1.svg') }}" class="h-40px" />
+            </a>
 
-        <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
-
-            {{-- Header --}}
-            @include('layout.header')
-
-            <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-
-                {{-- Toolbar --}}
-                @include('layout.toolbar')
-
-                <div class="post d-flex flex-column-fluid" id="kt_post">
-
-                    {{-- Page Content --}}
-                    <div id="kt_content_container" class="container-xxl">
-                        {{ $slot }}
-                    </div>
-
-                </div>
+            <div class="w-lg-500px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
+                {{ $slot }}
             </div>
+        </div>
 
-            {{-- Footer --}}
-            @include('layout.footer')
-
+        <div class="d-flex flex-center flex-column-auto p-10">
+            <div class="d-flex align-items-center fw-bold fs-6">
+                <a href="https://keenthemes.com" class="text-muted text-hover-primary px-2">About</a>
+                <a href="mailto:support@keenthemes.com" class="text-muted text-hover-primary px-2">Contact</a>
+                <a href="https://1.envato.market/EA4JP" class="text-muted text-hover-primary px-2">Contact Us</a>
+            </div>
         </div>
     </div>
 </div>

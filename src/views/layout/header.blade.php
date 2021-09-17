@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
-            <a href="?page=index" class="d-lg-none">
+            <a href="{{ route('dashboard') }}" class="d-lg-none">
                 <img alt="Logo" src="{{ asset('assets/media/logos/logo-2.svg') }}" class="h-30px"/>
             </a>
         </div>
@@ -40,52 +40,58 @@
             <div class="d-flex align-items-stretch flex-shrink-0">
                 <div class="d-flex align-items-stretch flex-shrink-0">
                     <div class="d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
-                        <div class="cursor-pointer symbol symbol-30px symbol-md-40px" data-kt-menu-trigger="click"
-                             data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
-                            <img src="{{ asset('assets/media/avatars/150-26.jpg') }}" alt="user"/>
-                        </div>
+                        <x-symbol class="cursor-pointer symbol-30px symbol-md-40px" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
+                            <x-slot name="label" class="bg-info text-inverse-info">{{ Auth::user()->name }}</x-slot>
+                        </x-symbol>
 
                         <div
                             class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-primary fw-bold py-4 fs-6 w-275px"
                             data-kt-menu="true">
                             <div class="menu-item px-3">
                                 <div class="menu-content d-flex align-items-center px-3">
-                                    <div class="symbol symbol-50px me-5">
-                                        <img alt="Logo" src="{{ asset('assets/media/avatars/150-26.jpg') }}"/>
-                                    </div>
+                                    <x-symbol class="symbol-50px me-5">
+                                        <x-slot name="label" class="bg-info text-inverse-info">{{ Auth::user()->name }}</x-slot>
+                                    </x-symbol>
                                     <div class="d-flex flex-column">
-                                        <div class="fw-bolder d-flex align-items-center fs-5">Max Smith
-                                            <span
-                                                class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">Pro</span>
+                                        <div class="fw-bolder d-flex align-items-center fs-5">
+                                            {{ Auth::user()->name }}
                                         </div>
-                                        <a href="#" class="fw-bold text-muted text-hover-primary fs-7">max@kt.com</a>
+                                        <a href="#" class="fw-bold text-muted text-hover-primary fs-7">{{ Auth::user()->email }}</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="separator my-2"></div>
                             <div class="menu-item px-5">
-                                <a href="?page=account/overview" class="menu-link px-5">My Profile</a>
+                                <a href="{{ route('account.profile.edit') }}" class="menu-link px-5">My Profile</a>
                             </div>
                             <div class="separator my-2"></div>
                             <div class="menu-item px-5 my-1">
-                                <a href="?page=account/settings" class="menu-link px-5">Account Settings</a>
+                                <a href="{{ route('account.change_password.edit') }}" class="menu-link px-5">Change Password</a>
                             </div>
                             <div class="menu-item px-5">
-                                <a href="?page=authentication/flows/basic/sign-in" class="menu-link px-5">Sign Out</a>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <a href="{{ route('logout') }}" class="menu-link px-5" onclick="event.preventDefault();this.closest('form').submit();">
+                                        Sign Out
+                                    </a>
+                                </form>
                             </div>
                             <div class="separator my-2"></div>
                             <div class="menu-item px-5">
                                 <div class="menu-content px-5">
-                                    <label
-                                        class="form-check form-switch form-check-custom form-check-solid pulse pulse-success"
-                                        for="kt_user_menu_dark_mode_toggle">
-                                        <input class="form-check-input w-30px h-20px" type="checkbox" value="1"
-                                               name="mode"
-                                               id="kt_user_menu_dark_mode_toggle"
-                                               data-kt-url="../../demo1/dist/?page=index&amp;mode=dark"/>
-                                        <span class="pulse-ring ms-n1"></span>
-                                        <span class="form-check-label text-gray-600 fs-7">Dark Mode</span>
-                                    </label>
+                                    <form method="POST" action="{{ route('account.profile.update.dark_mode') }}">
+                                        @method('PUT')
+                                        @csrf
+                                        <label
+                                            class="form-check form-switch form-check-custom form-check-solid pulse pulse-success"
+                                            for="kt_user_menu_dark_mode_toggle">
+
+                                            <input class="form-check-input w-30px h-20px" type="checkbox" value="true" name="dark_mode" onchange="event.preventDefault();this.closest('form').submit();"
+                                                   {{ (Session::get('dark_mode')) ? "checked" : "" }}/>
+                                            <span class="pulse-ring ms-n1"></span>
+                                            <span class="form-check-label text-gray-600 fs-7">Dark Mode</span>
+                                        </label>
+                                    </form>
                                 </div>
                             </div>
                         </div>

@@ -12,14 +12,14 @@ return [
             ]
         ],
         'css' => [
-           'regular' => [
-               'assets/plugins/global/plugins.bundle.css',
-               'assets/css/style.bundle.css',
-           ],
-           'dark' => [
-               'assets/plugins/global/plugins.dark.bundle.css',
-               'assets/css/style.dark.bundle.css',
-           ],
+            'regular' => [
+                'assets/plugins/global/plugins.bundle.css',
+                'assets/css/style.bundle.css',
+            ],
+            'dark' => [
+                'assets/plugins/global/plugins.dark.bundle.css',
+                'assets/css/style.dark.bundle.css',
+            ],
         ],
         'js' => [
             'assets/plugins/global/plugins.bundle.js',
@@ -29,80 +29,44 @@ return [
     'menu' => [
         'aside' => [
             [
-                'title' => 'Section 1'
+                'title' => 'General'
             ],
             [
-                'title' => 'Menu 1',
-                'link' => '#',
-                'icon' => 'bi bi-person fs-2'
+                'title' => 'Dashboard',
+                'link' => 'dashboard',
+                'icon' => 'fas fa-home fs-2'
             ],
-            [
-                'title' => 'Menu 2',
-                'link' => '#',
-                'icon' => 'bi bi-person fs-2'
-            ],
-            [
-                'title' => 'Section 2'
-            ],
-            [
-                'title' => 'Menu 3',
-                'link' => '#',
-                'icon' => 'bi bi-person fs-2'
-            ],
-            [
-                'title' => 'Section 3'
-            ],
-            [
+            /*[
                 'title' => 'Sub Menu',
                 'icon' => 'bi bi-person fs-2',
                 'sub_menu' => [
                     [
                         'title' => 'Item 1',
-                        'link' => '#',
-                    ],
-                    [
-                        'title' => 'Item 2',
-                        'link' => '#'
-                    ],
-                    [
-                        'title' => 'Item 3',
-                        'link' => '#'
+                        'link' => 'dashboard',
                     ]
                 ]
-            ],
+            ],*/
         ],
         'header' => [
             [
-                'title' => 'Menu 1',
-                'link' => '#'
+                'title' => 'Dashboard',
+                'link' => 'dashboard'
             ],
-            [
-                'title' => 'Menu 2',
-                'link' => '#'
-            ],
-            [
-                'title' => 'Menu 3',
+            /*[
+                'title' => 'Sub Menu',
                 'sub_menu' => [
                     [
-                        'title' => 'Item 1',
-                        'link' => '#',
-                    ],
-                    [
-                        'title' => 'Item 2',
-                        'link' => '#',
+                        'title' => 'Dashboard',
+                        'link' => 'dashboard',
                     ]
                 ]
-            ]
+            ]*/
         ],
         'footer' => [
             [
-                'title' => 'Menu 1',
+                'title' => 'Dashboard',
                 'link' => '#'
-            ],
-            [
-                'title' => 'Menu 2',
-                'link' => '#'
-            ],
+            ]
         ]
     ]
 ];

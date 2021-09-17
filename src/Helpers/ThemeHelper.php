@@ -1,6 +1,8 @@
 <?php
 
-namespace NovusLogics\AdminPanel\Helpers;
+namespace App\Helpers_;
+
+use Illuminate\Support\Facades\Route;
 
 class ThemeHelper
 {
@@ -15,7 +17,14 @@ class ThemeHelper
                     $subItems .= self::asideMenuItem($sub_menu);
                 }
 
-                $items .= "<div class='menu-item menu-accordion' data-kt-menu-trigger='click'>
+                $subMenuActiveClass = "";
+                $subMenuClass = "";
+                if (in_array(Route::currentRouteName(), collect($menu['sub_menu'])->pluck('link')->toArray())) {
+                    $subMenuClass .= " here show";
+                    $subMenuActiveClass = "active";
+                }
+
+                $items .= "<div class='menu-item menu-accordion {$subMenuClass}' data-kt-menu-trigger='click'>
                                 <span class='menu-link'>
                                     <span class='menu-icon'>
                                         <i class='{$menu['icon']}'></i>
@@ -23,7 +32,7 @@ class ThemeHelper
                                     <span class='menu-title'>{$menu['title']}</span>
                                     <span class='menu-arrow'></span>
                                 </span>
-                                <div class='menu-sub menu-sub-accordion menu-active-bg'>
+                                <div class='menu-sub menu-sub-accordion menu-active-bg {$subMenuActiveClass}'>
                                     {$subItems}
                                 </div>
                             </div>";
@@ -49,9 +58,11 @@ class ThemeHelper
     private static function asideMenuItem($menu): string
     {
         $iconBullet = (isset($menu['icon'])) ? "<span class='menu-icon'><i class='{$menu['icon']}'></i></span>" : "<span class='menu-bullet'><span class='bullet bullet-dot'></span></span>";
+        $activeClass = (Route::currentRouteName() === $menu['link'] ? "active" : "");
+        $link = route($menu['link']);
 
         return "<div class='menu-item'>
-                    <a class='menu-link' href='{$menu['link']}'>
+                    <a class='menu-link {$activeClass}' href='{$link}'>
                         {$iconBullet}
                         <span class='menu-title'>{$menu['title']}</span>
                     </a>
@@ -69,8 +80,12 @@ class ThemeHelper
                 }
 
                 $icon = (isset($menu['icon'])) ? "<span class='menu-icon'><i class='{$menu['icon']}'></i></span>" : "";
+                $subMenuClass = "";
+                if (in_array(Route::currentRouteName(), collect($menu['sub_menu'])->pluck('link')->toArray())) {
+                    $subMenuClass .= "here show";
+                }
 
-                $items .= "<div data-kt-menu-trigger='click' data-kt-menu-placement='bottom-start' class='menu-item menu-lg-down-accordion me-lg-1'>
+                $items .= "<div data-kt-menu-trigger='click' data-kt-menu-placement='bottom-start' class='menu-item menu-lg-down-accordion me-lg-1 {$subMenuClass}'>
                                 <span class='menu-link py-3'>
                                     {$icon}
                                     <span class='menu-title'>{$menu['title']}</span>
@@ -89,9 +104,11 @@ class ThemeHelper
     private static function headerMenuItem($menu, $class = null): string
     {
         $icon = (isset($menu['icon'])) ? "<span class='menu-icon'><i class='{$menu['icon']}'></i></span>" : "";
+        $activeClass = (Route::currentRouteName() === $menu['link'] ? "active" : "");
+        $link = route($menu['link']);
 
         return "<div class='menu-item {$class}'>
-                    <a class='menu-link py-3' href='{$menu['link']}'>
+                    <a class='menu-link py-3 {$activeClass}' href='{$link}'>
                         {$icon}
                         <span class='menu-title'>{$menu['title']}</span>
                     </a>
