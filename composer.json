@@ -14,5 +14,16 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "NovusLogics\\AdminPanel\\AdminPanelServiceProvider"
+            ],
+            "aliases": {
+                "ThemeHelper": "NovusLogics\\AdminPanel\\Helpers\\ThemeHelper",
+                "BladeHelper": "NovusLogics\\AdminPanel\\Helpers\\BladeHelper"
+            }
+        }
+    }
 }

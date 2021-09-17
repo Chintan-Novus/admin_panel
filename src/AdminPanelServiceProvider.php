@@ -12,7 +12,6 @@ class AdminPanelServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__ . '/config/admin_panel.php' => config_path('admin_panel.php'),
-            __DIR__ . '/Helpers/' => app_path('Helpers'),
             __DIR__ . '/public/assets/' => public_path('assets'),
             __DIR__ . '/Http/Controllers' => app_path('Http/Controllers'),
             __DIR__ . '/Http/Requests' => app_path('Http/Requests'),

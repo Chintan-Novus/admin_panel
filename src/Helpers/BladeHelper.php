@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Helpers_;
+namespace NovusLogics\AdminPanel\Helpers;
 
 use Illuminate\Support\Str;
 
