@@ -10,7 +10,7 @@ class ProfileController
 {
     public function edit()
     {
-        return view('account.profile.edit');
+        return view('admin_panel::account.profile.edit');
     }
 
     public function update(ProfileRequest $request): \Illuminate\Http\RedirectResponse

@@ -28,5 +28,8 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
 
         // Routes
         $this->loadRoutesFrom(__DIR__.'/Http/routes.php');
+
+        // Views
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'admin_panel');
     }
 }

@@ -10,7 +10,7 @@ class AuthenticatedSessionController
 {
     public function create()
     {
-        return view('auth.login');
+        return view('admin_panel::auth.login');
     }
 
     public function store(LoginRequest $request): \Illuminate\Http\RedirectResponse

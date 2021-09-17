@@ -10,7 +10,7 @@ class ChangePasswordController
 {
     public function edit()
     {
-        return view('account.change_password');
+        return view('admin_panel::account.change_password');
     }
 
     public function update(ChangePasswordRequest $request): \Illuminate\Http\RedirectResponse

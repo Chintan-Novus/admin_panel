@@ -27,7 +27,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [Novuslogics\AdminPanel\Http\Controllers\Auth\AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
     // Dashboard
-    Route::view('dashboard', 'dashboard')->name('dashboard');
+    Route::view('dashboard', 'admin_panel::dashboard')->name('dashboard');
 
     // Account
     Route::prefix('account')->as('account.')->group(function () {

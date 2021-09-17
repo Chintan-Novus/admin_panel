@@ -9,7 +9,7 @@ class PasswordResetLinkController
 {
     public function create()
     {
-        return view('auth.forgot-password');
+        return view('admin_panel::auth.forgot-password');
     }
 
     public function store(Request $request): \Illuminate\Http\RedirectResponse
