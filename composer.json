@@ -1,0 +1,29 @@
+{
+    "name": "novuslogics/admin_panel",
+    "description": "Basic Laravel Admin panel with template and basic auth operations",
+    "keywords": ["laravel", "Admin", "Admin panel", "Template"],
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Novuslogics\\AdminPanel\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Chintan Dave",
+            "email": "chintandave.nl@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "illuminate/support": "8.x-dev"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Novuslogics\\AdminPanel\\ServiceProvider"
+            ]
+        }
+    }
+}
