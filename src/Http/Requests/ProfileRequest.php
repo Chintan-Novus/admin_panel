@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests_;
+namespace App\Http\Requests;
 
 class ProfileRequest extends Request
 {
