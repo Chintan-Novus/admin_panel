@@ -8,8 +8,6 @@ class AdminPanelServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        $this->loadRoutesFrom(__DIR__.'/routes/web.php');
-
         $this->publishes([
             __DIR__ . '/config/admin_panel.php' => config_path('admin_panel.php'),
             __DIR__ . '/public/assets/' => public_path('assets'),
