@@ -17,6 +17,11 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         // Config
         $this->publishes([
             __DIR__.'/../config/admin_panel.php' => config_path('admin_panel.php'),
-        ]);
+        ], 'config');
+
+        // Assets
+        $this->publishes([
+            __DIR__.'/../public/assets/' => public_path('assets'),
+        ], 'assets');
     }
 }
