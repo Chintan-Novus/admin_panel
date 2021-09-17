@@ -2,27 +2,15 @@
 
 namespace Novuslogics\AdminPanel\Http\Controllers;
 
-use App\Http\Requests\ProfileRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Novuslogics\AdminPanel\Http\Requests\ProfileRequest;
 
-class ProfileController extends Controller
+class ProfileController
 {
     public function edit()
     {
-        $pageTitle = "Update Profile";
-        $pageMeta = [
-            [
-                'name' => 'description',
-                'content' => 'description: Loream Ipsum',
-            ],
-            [
-                'name' => 'keywords',
-                'content' => 'keywords, test1, test2',
-            ]
-        ];
-
-        return view('account.profile.edit', compact('pageTitle', 'pageMeta'));
+        return view('account.profile.edit');
     }
 
     public function update(ProfileRequest $request): \Illuminate\Http\RedirectResponse

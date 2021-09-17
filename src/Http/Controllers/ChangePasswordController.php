@@ -2,11 +2,11 @@
 
 namespace Novuslogics\AdminPanel\Http\Controllers;
 
-use App\Http\Requests_\ChangePasswordRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Novuslogics\AdminPanel\Http\Requests\ChangePasswordRequest;
 
-class ChangePasswordController extends Controller
+class ChangePasswordController
 {
     public function edit()
     {
