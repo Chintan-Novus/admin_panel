@@ -2,11 +2,6 @@
     "name": "novuslogics/admin_panel",
     "type": "library",
     "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Novuslogics\\AdminPanel\\": "src/"
-        }
-    },
     "authors": [
         {
             "name": "Novus Logics",
@@ -15,15 +10,16 @@
     ],
     "minimum-stability": "dev",
     "require": {},
+    "autoload": {
+        "psr-4": {
+            "Novuslogics\\AdminPanel\\": "src/"
+        }
+    },
     "extra": {
         "laravel": {
             "providers": [
                 "NovusLogics\\AdminPanel\\AdminPanelServiceProvider"
-            ],
-            "aliases": {
-                "ThemeHelper": "NovusLogics\\AdminPanel\\Helpers\\ThemeHelper",
-                "BladeHelper": "NovusLogics\\AdminPanel\\Helpers\\BladeHelper"
-            }
+            ]
         }
     }
 }
