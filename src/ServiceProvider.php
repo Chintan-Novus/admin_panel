@@ -2,6 +2,8 @@
 
 namespace Novuslogics\AdminPanel;
 
+use Illuminate\Support\Facades\Route;
+
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
     public function register()
@@ -17,11 +19,16 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         // Config
         $this->publishes([
             __DIR__.'/../config/admin_panel.php' => config_path('admin_panel.php'),
-        ], 'admin_config');
+        ], 'admin-config');
 
         // Assets
         $this->publishes([
             __DIR__.'/../public/assets/' => public_path('assets'),
-        ], 'admin_assets');
+        ], 'admin-assets');
+
+        // Routes
+        Route::group(['namespace' => 'Novuslogics\AdminPanel\Http\Controllers'], function () {
+            $this->loadRoutesFrom(__DIR__.'/Http/routes.php');
+        });
     }
 }
