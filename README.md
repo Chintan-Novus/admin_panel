@@ -1,4 +1,6 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://novuslogics.com/images/logo-light.png" width="400"></a></p>
+<p align="center" style="background: #00409F"><a href="https://novuslogics.com/" target="_blank">
+<img src="https://novuslogics.com/images/logo-light.png" width="400">
+</a></p>
 
 <p align="center">
 <a href="https://packagist.org/packages/novuslogics/admin_panel"><img src="https://img.shields.io/github/last-commit/Chintan-Novus/admin_panel" alt="Last Commit"></a>
