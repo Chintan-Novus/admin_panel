@@ -27,8 +27,6 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         ], 'admin-assets');
 
         // Routes
-        Route::group(['namespace' => 'Novuslogics\AdminPanel\Http\Controllers'], function () {
-            $this->loadRoutesFrom(__DIR__.'/Http/routes.php');
-        });
+        $this->loadRoutesFrom(__DIR__.'/Http/routes.php');
     }
 }
