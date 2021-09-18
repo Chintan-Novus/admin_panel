@@ -42,23 +42,23 @@
 <body id="kt_body" class="page-loading-enabled page-loading header-fixed header-tablet-and-mobile-fixed aside-enabled aside-fixed {{ ($toolbarEnabled) ? "toolbar-enabled toolbar-fixed" : "" }}" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
 
 {{-- Loader --}}
-@include('layout.loader')
+@include('admin_panel::layout.loader')
 
 <div class="d-flex flex-column flex-root">
     <div class="page d-flex flex-row flex-column-fluid">
 
         {{-- Sidebar --}}
-        @include('layout.aside')
+        @include('admin_panel::layout.aside')
 
         <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
 
             {{-- Header --}}
-            @include('layout.header')
+            @include('admin_panel::layout.header')
 
             <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
 
                 {{-- Toolbar --}}
-                @include('layout.toolbar')
+                @include('admin_panel::layout.toolbar')
 
                 <div class="post d-flex flex-column-fluid" id="kt_post">
 
@@ -71,14 +71,14 @@
             </div>
 
             {{-- Footer --}}
-            @include('layout.footer')
+            @include('admin_panel::layout.footer')
 
         </div>
     </div>
 </div>
 
 {{-- Scroll to top --}}
-@include('layout.scroll_top')
+@include('admin_panel::layout.scroll_top')
 
 {{-- Scripts --}}
 @foreach(config('admin_panel.resources.js') as $script)

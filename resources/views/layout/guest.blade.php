@@ -61,7 +61,7 @@
 </div>
 
 {{-- Scroll to top --}}
-@include('layout.scroll_top')
+@include('admin_panel::layout.scroll_top')
 
 {{-- Scripts --}}
 @foreach(config('admin_panel.resources.js') as $script)

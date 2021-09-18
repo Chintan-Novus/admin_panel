@@ -1,6 +1,8 @@
 <?php
 
 Route::middleware('web')->group(function () {
+    Route::view('/', 'welcome')->name('welcome');
+
     // Guest route
     Route::middleware('guest')->group(function () {
         // Login
