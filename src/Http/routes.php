@@ -1,7 +1,7 @@
 <?php
 
 Route::middleware('web')->group(function () {
-    Route::view('/', 'welcome')->name('welcome');
+    Route::view('', 'admin_panel::welcome')->name('welcome');
 
     // Guest route
     Route::middleware('guest')->group(function () {
