@@ -1,32 +1,32 @@
-<x-app-layout toolbar-title="Update Profile" page-title="Update profile">
+<x-admin_panel-app-layout toolbar-title="Update Profile" page-title="Update profile">
     <div class="mb-4">
         <!-- Validation Errors -->
-        <x-auth-validation-errors :errors="$errors" />
+        <x-admin_panel::auth-validation-errors :errors="$errors" />
     </div>
 
     <form method="POST" action="{{ route('account.profile.update') }}" id="profile_form" class="form">
         @method('PUT')
         @csrf
 
-        <x-card title="Update Profile">
+        <x-admin_panel::card title="Update Profile">
 
             <div class="row mb-6">
-                <x-label for="email" value="Email" />
+                <x-admin_panel::label for="email" value="Email" />
                 <div class="col-lg-10 fv-row">
-                    <x-input type="email" name="email" placeholder="Email" :value="Auth::user()->email" readonly/>
+                    <x-admin_panel::input type="email" name="email" placeholder="Email" :value="Auth::user()->email" readonly/>
                 </div>
             </div>
             <div class="row mb-6">
-                <x-label for="name" value="name" class="required" />
+                <x-admin_panel::label for="name" value="name" class="required" />
                 <div class="col-lg-10 fv-row">
-                    <x-input name="name" placeholder="Name" :value="Auth::user()->name"/>
+                    <x-admin_panel::input name="name" placeholder="Name" :value="Auth::user()->name"/>
                 </div>
             </div>
 
-            <x-slot name="footer" class="d-flex justify-content-end py-6 px-9">
-                <x-button class="btn-primary">Save</x-button>
-            </x-slot>
-        </x-card>
+            <x-admin_panel::slot name="footer" class="d-flex justify-content-end py-6 px-9">
+                <x-admin_panel::button class="btn-primary">Save</x-admin_panel::button>
+            </x-admin_panel::slot>
+        </x-admin_panel::card>
     </form>
 
     @push('scripts')
@@ -78,4 +78,4 @@
             });
         </script>
     @endpush
-</x-app-layout>
+</x-admin_panel-app-layout>

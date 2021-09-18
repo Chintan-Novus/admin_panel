@@ -1,23 +1,23 @@
-<x-app-layout toolbar-title="Change Password">
+<x-admin_panel-app-layout toolbar-title="Change Password">
     <form method="POST" action="{{ route('account.change_password.update') }}" id="change_password_form" class="form">
         @method('PUT')
         @csrf
 
-        <x-card title="Change password">
+        <x-admin_panel::card title="Change password">
 
             <!-- Validation Errors -->
-            <x-auth-validation-errors :errors="$errors" />
+            <x-admin_panel::auth-validation-errors :errors="$errors" />
 
             <div class="row mb-6 mt-6">
-                <x-label for="current_password" value="Current Password" class="required" />
+                <x-admin_panel::label for="current_password" value="Current Password" class="required" />
                 <div class="col-lg-10 fv-row">
-                    <x-input type="password" name="current_password" placeholder="Current password" autofocus/>
+                    <x-admin_panel::input type="password" name="current_password" placeholder="Current password" autofocus/>
                 </div>
             </div>
             <div class="row mb-6" data-kt-password-meter="true">
-                <x-label for="password" value="Password" class="required" />
+                <x-admin_panel::label for="password" value="Password" class="required" />
                 <div class="col-lg-10 fv-row position-relative">
-                    <x-input type="password" name="password" placeholder="Password"/>
+                    <x-admin_panel::input type="password" name="password" placeholder="Password"/>
                     <span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2"
                           data-kt-password-meter-control="visibility">
                             <i class="bi bi-eye-slash fs-2"></i>
@@ -32,16 +32,16 @@
                 </div>
             </div>
             <div class="row mb-6">
-                <x-label for="confirm_password" value="Confirm Password" class="required" />
+                <x-admin_panel::label for="confirm_password" value="Confirm Password" class="required" />
                 <div class="col-lg-10 fv-row">
-                    <x-input type="password" name="password_confirmation" placeholder="Confirm Password"/>
+                    <x-admin_panel::input type="password" name="password_confirmation" placeholder="Confirm Password"/>
                 </div>
             </div>
 
-            <x-slot name="footer" class="d-flex justify-content-end py-6 px-9">
-                <x-button class="btn-primary" id="submit_btn">Save</x-button>
-            </x-slot>
-        </x-card>
+            <x-admin_panel::slot name="footer" class="d-flex justify-content-end py-6 px-9">
+                <x-admin_panel::button class="btn-primary" id="submit_btn">Save</x-admin_panel::button>
+            </x-admin_panel::slot>
+        </x-admin_panel::card>
     </form>
 
     @push('scripts')
@@ -111,4 +111,4 @@
             });
         </script>
     @endpush
-</x-app-layout>
+</x-admin_panel-app-layout>

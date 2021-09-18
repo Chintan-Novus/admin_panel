@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-admin_panel-guest-layout>
     <form method="POST" action="{{ route('password.email') }}" class="form w-100" novalidate="novalidate"
           id="forgot_password_form">
         @csrf
@@ -8,14 +8,14 @@
         </div>
 
         <!-- Validation Errors -->
-        <x-auth-validation-errors :errors="$errors"/>
+        <x-admin_panel::auth-validation-errors :errors="$errors"/>
 
         <div class="fv-row mb-10">
-            <x-label for="email" :value="__('Email')" class="required"/>
-            <x-input type="email" name="email" :value="old('email')" placeholder="Email" autofocus autocomplete="off"/>
+            <x-admin_panel::label for="email" :value="__('Email')" class="required"/>
+            <x-admin_panel::input type="email" name="email" :value="old('email')" placeholder="Email" autofocus autocomplete="off"/>
         </div>
         <div class="text-center">
-            <x-button class="btn-primary" id="submit_btn">{{ __('Email Password Reset Link') }}</x-button>
+            <x-admin_panel::button class="btn-primary" id="submit_btn">{{ __('Email Password Reset Link') }}</x-admin_panel::button>
         </div>
     </form>
 
@@ -61,4 +61,4 @@
             });
         </script>
     @endpush
-</x-guest-layout>
+</x-admin_panel-guest-layout>

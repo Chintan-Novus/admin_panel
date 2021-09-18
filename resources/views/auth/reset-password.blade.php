@@ -1,10 +1,10 @@
-<x-guest-layout>
+<x-admin_panel-guest-layout>
     <form method="POST" action="{{ route('password.update') }}" class="form w-100" novalidate="novalidate"
           id="reset_password_form">
         @csrf
 
         <!-- Password Reset Token -->
-        <x-input type="hidden" name="token" :value="$request->route('token')"/>
+        <x-admin_panel::input type="hidden" name="token" :value="$request->route('token')"/>
 
         <div class="text-center mb-10">
             <h1 class="text-dark mb-3">Setup New Password</h1>
@@ -15,18 +15,18 @@
         </div>
 
         <!-- Validation Errors -->
-        <x-auth-validation-errors :errors="$errors"/>
+        <x-admin_panel::auth-validation-errors :errors="$errors"/>
 
         <div class="fv-row mb-10">
-            <x-label for="email" value="Email" class="required col-lg-6"/>
-            <x-input type="email" name="email" placeholder="Email" :value="old('email', $request->email)" readonly/>
+            <x-admin_panel::label for="email" value="Email" class="required col-lg-6"/>
+            <x-admin_panel::input type="email" name="email" placeholder="Email" :value="old('email', $request->email)" readonly/>
         </div>
 
         <div class="mb-10 fv-row" data-kt-password-meter="true">
             <div class="mb-1">
-                <x-label for="password" value="Password" class="required col-lg-6"/>
+                <x-admin_panel::label for="password" value="Password" class="required col-lg-6"/>
                 <div class="position-relative mb-3">
-                    <x-input type="password" name="password" placeholder="Password" autofocus/>
+                    <x-admin_panel::input type="password" name="password" placeholder="Password" autofocus/>
                     <span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2"
                           data-kt-password-meter-control="visibility">
                         <i class="bi bi-eye-slash fs-2"></i>
@@ -43,11 +43,11 @@
             <div class="text-muted">Use 8 or more characters with a mix of letters, numbers &amp; symbols.</div>
         </div>
         <div class="fv-row mb-10">
-            <x-label for="password_confirmation" value="Confirm Password" class="required col-lg-6"/>
-            <x-input type="password" name="password_confirmation" placeholder="Confirm password"/>
+            <x-admin_panel::label for="password_confirmation" value="Confirm Password" class="required col-lg-6"/>
+            <x-admin_panel::input type="password" name="password_confirmation" placeholder="Confirm password"/>
         </div>
         <div class="text-center">
-            <x-button class="btn-primary" id="submit_btn">{{ __('Reset Password') }}</x-button>
+            <x-admin_panel::button class="btn-primary" id="submit_btn">{{ __('Reset Password') }}</x-admin_panel::button>
         </div>
     </form>
 
@@ -107,4 +107,4 @@
             });
         </script>
     @endpush
-</x-guest-layout>
+</x-admin_panel-guest-layout>

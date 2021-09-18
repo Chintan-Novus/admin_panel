@@ -9,18 +9,18 @@
         <x-admin_panel::auth-validation-errors :errors="$errors" />
 
         <div class="fv-row mb-10">
-            <x-label for="email" :value="__('Email')" class="required col-lg-4" />
-            <x-input type="email" name="email" :value="old('email')" placeholder="Email" autofocus autocomplete="off" />
+            <x-admin_panel::label for="email" :value="__('Email')" class="required col-lg-4" />
+            <x-admin_panel::input type="email" name="email" :value="old('email')" placeholder="Email" autofocus autocomplete="off" />
         </div>
         <div class="fv-row mb-10">
             <div class="d-flex flex-stack mb-2">
-                <x-label for="password" :value="__('Password')" class="required col-lg-4" />
+                <x-admin_panel::label for="password" :value="__('Password')" class="required col-lg-4" />
                 <a href="{{ route('password.request') }}" class="link-primary fs-6 fw-bolder">Forgot Password?</a>
             </div>
-            <x-input type="password" name="password" placeholder="Password" autocomplete="current-password" />
+            <x-admin_panel::input type="password" name="password" placeholder="Password" autocomplete="current-password" />
         </div>
         <div class="text-center">
-            <x-button class="btn-primary" id="submit_btn">Sign In</x-button>
+            <x-admin_panel::button class="btn-primary" id="submit_btn">Sign In</x-admin_panel::button>
         </div>
     </form>
 
