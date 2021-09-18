@@ -41,7 +41,7 @@
                 <div class="d-flex align-items-stretch flex-shrink-0">
                     <div class="d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
                         <x-admin_panel::symbol class="cursor-pointer symbol-30px symbol-md-40px" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
-                            <x-admin_panel::slot name="label" class="bg-info text-inverse-info">{{ Auth::user()->name }}</x-admin_panel::slot>
+                            <x-slot name="label" class="bg-info text-inverse-info">{{ Auth::user()->name }}</x-slot>
                         </x-admin_panel::symbol>
 
                         <div
@@ -50,7 +50,7 @@
                             <div class="menu-item px-3">
                                 <div class="menu-content d-flex align-items-center px-3">
                                     <x-admin_panel::symbol class="symbol-50px me-5">
-                                        <x-admin_panel::slot name="label" class="bg-info text-inverse-info">{{ Auth::user()->name }}</x-admin_panel::slot>
+                                        <x-slot name="label" class="bg-info text-inverse-info">{{ Auth::user()->name }}</x-slot>
                                     </x-admin_panel::symbol>
                                     <div class="d-flex flex-column">
                                         <div class="fw-bolder d-flex align-items-center fs-5">

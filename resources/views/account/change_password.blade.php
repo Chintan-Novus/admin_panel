@@ -38,9 +38,9 @@
                 </div>
             </div>
 
-            <x-admin_panel::slot name="footer" class="d-flex justify-content-end py-6 px-9">
+            <x-slot name="footer" class="d-flex justify-content-end py-6 px-9">
                 <x-admin_panel::button class="btn-primary" id="submit_btn">Save</x-admin_panel::button>
-            </x-admin_panel::slot>
+            </x-slot>
         </x-admin_panel::card>
     </form>
 
