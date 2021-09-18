@@ -23,7 +23,11 @@
         "laravel": {
             "providers": [
                 "Novuslogics\\AdminPanel\\ServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "ThemeHelper": "Novuslogics\\AdminPanel\\Helpers\\ThemeHelper",
+                "BladeHelper": "Novuslogics\\AdminPanel\\Helpers\\BladeHelper"
+            }
         }
     }
 }
