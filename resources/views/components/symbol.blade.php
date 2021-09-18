@@ -8,7 +8,7 @@
     {{-- Label --}}
     @if (isset($label))
         <div {{ $label->attributes->class(['symbol-label']) }}>
-            {!! \App\Helpers\BladeHelper::symbolName($label) !!}
+            {!! BladeHelper::symbolName($label) !!}
         </div>
     @endif
     @if(isset($avatar))
