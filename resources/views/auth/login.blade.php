@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-admin_panel-guest-layout>
     <form method="POST" action="{{ route('login') }}" class="form w-100" novalidate="novalidate" id="login_form">
         @csrf
         <div class="text-center mb-10">
@@ -6,7 +6,7 @@
         </div>
 
         <!-- Validation Errors -->
-        <x-auth-validation-errors :errors="$errors" />
+        <x-admin_panel::auth-validation-errors :errors="$errors" />
 
         <div class="fv-row mb-10">
             <x-label for="email" :value="__('Email')" class="required col-lg-4" />
@@ -77,4 +77,4 @@
             });
         </script>
     @endpush
-</x-guest-layout>
+</x-admin_panel-guest-layout>
