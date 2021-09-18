@@ -17,7 +17,6 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "laravel/framework": "^8"
     },
     "extra": {
         "laravel": {
