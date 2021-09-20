@@ -42,7 +42,7 @@
 <body id="kt_body" class="page-loading-enabled page-loading header-fixed header-tablet-and-mobile-fixed aside-enabled aside-fixed {{ ($toolbarEnabled) ? "toolbar-enabled toolbar-fixed" : "" }}" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
 
 {{-- Loader --}}
-@include('admin_panel::layout.loader')
+{{--@include('admin_panel::layout.loader')--}}
 
 <div class="d-flex flex-column flex-root">
     <div class="page d-flex flex-row flex-column-fluid">
@@ -78,7 +78,9 @@
 </div>
 
 {{-- Scroll to top --}}
-@include('admin_panel::layout.scroll_top')
+<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+    {!! ThemeHelper::getSVG('assets/media/icons/duotune/arrows/arr066.svg') !!}
+</div>
 
 {{-- Scripts --}}
 @foreach(config('admin_panel.resources.js') as $script)

@@ -61,7 +61,9 @@
 </div>
 
 {{-- Scroll to top --}}
-@include('admin_panel::layout.scroll_top')
+<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+    {!! ThemeHelper::getSVG('assets/media/icons/duotune/arrows/arr066.svg') !!}
+</div>
 
 {{-- Scripts --}}
 @foreach(config('admin_panel.resources.js') as $script)
