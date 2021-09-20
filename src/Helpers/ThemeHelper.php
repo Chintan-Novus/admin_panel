@@ -24,11 +24,11 @@ class ThemeHelper
                     $subMenuActiveClass = "active";
                 }
 
+                $iconBullet = self::menuIcon($menu);
+
                 $items .= "<div class='menu-item menu-accordion {$subMenuClass}' data-kt-menu-trigger='click'>
                                 <span class='menu-link'>
-                                    <span class='menu-icon'>
-                                        <i class='{$menu['icon']}'></i>
-                                    </span>
+                                    $iconBullet
                                     <span class='menu-title'>{$menu['title']}</span>
                                     <span class='menu-arrow'></span>
                                 </span>
@@ -57,7 +57,8 @@ class ThemeHelper
 
     private static function asideMenuItem($menu): string
     {
-        $iconBullet = (isset($menu['icon'])) ? "<span class='menu-icon'><i class='{$menu['icon']}'></i></span>" : "<span class='menu-bullet'><span class='bullet bullet-dot'></span></span>";
+        $iconBullet = self::menuIcon($menu);
+
         $activeClass = (Route::currentRouteName() === $menu['link'] ? "active" : "");
         $link = route($menu['link']);
 
@@ -67,6 +68,22 @@ class ThemeHelper
                         <span class='menu-title'>{$menu['title']}</span>
                     </a>
                 </div>";
+    }
+
+    private static function menuIcon($menu)
+    {
+        $return = "<span class='menu-bullet'><span class='bullet bullet-dot'></span></span>";
+        if (isset($menu['svg']) || isset($menu['icon'])) {
+            if (isset($menu['svg'])) {
+                $icon = self::getSVG($menu['svg'], 'svg-icon-2');
+            } else {
+                $icon = "<i class='{$menu['icon']}'></i>";
+            }
+
+            $return = "<span class='menu-icon'>{$icon}</span>";
+        }
+
+        return $return;
     }
 
     public static function headerMenu(): string
@@ -79,7 +96,7 @@ class ThemeHelper
                     $subItems .= self::headerMenuItem($sub_menu);
                 }
 
-                $icon = (isset($menu['icon'])) ? "<span class='menu-icon'><i class='{$menu['icon']}'></i></span>" : "";
+                $icon = self::menuIcon($menu);
                 $subMenuClass = "";
                 if (in_array(Route::currentRouteName(), collect($menu['sub_menu'])->pluck('link')->toArray())) {
                     $subMenuClass .= "here show";
@@ -103,7 +120,7 @@ class ThemeHelper
 
     private static function headerMenuItem($menu, $class = null): string
     {
-        $icon = (isset($menu['icon'])) ? "<span class='menu-icon'><i class='{$menu['icon']}'></i></span>" : "";
+        $icon = self::menuIcon($menu);
         $activeClass = (Route::currentRouteName() === $menu['link'] ? "active" : "");
         $link = route($menu['link']);
 
@@ -130,5 +147,83 @@ class ThemeHelper
         return "<li class='menu-item'>
                     <a href='{$menu['link']}' class='menu-link px-2' target='_blank'>{$menu['title']}</a>
                 </li>";
+    }
+
+    public static function getSVG($filepath, string $class = null)
+    {
+        if (!is_string($filepath) || !file_exists($filepath)) {
+            return '';
+        }
+
+        $svg_content = file_get_contents($filepath);
+
+        $dom = new \DOMDocument();
+        $dom->loadXML($svg_content);
+
+        // remove unwanted comments
+        $xpath = new \DOMXPath($dom);
+        foreach ($xpath->query('//comment()') as $comment) {
+            $comment->parentNode->removeChild($comment);
+        }
+
+        // remove unwanted tags
+        $title = $dom->getElementsByTagName('title');
+        if ($title['length']) {
+            $dom->documentElement->removeChild($title[0]);
+        }
+        $desc = $dom->getElementsByTagName('desc');
+        if ($desc['length']) {
+            $dom->documentElement->removeChild($desc[0]);
+        }
+        $defs = $dom->getElementsByTagName('defs');
+        if ($defs['length']) {
+            $dom->documentElement->removeChild($defs[0]);
+        }
+
+        // remove unwanted id attribute in g tag
+        $g = $dom->getElementsByTagName('g');
+        foreach ($g as $el) {
+            $el->removeAttribute('id');
+        }
+        $mask = $dom->getElementsByTagName('mask');
+        foreach ($mask as $el) {
+            $el->removeAttribute('id');
+        }
+        $rect = $dom->getElementsByTagName('rect');
+        foreach ($rect as $el) {
+            $el->removeAttribute('id');
+        }
+        $path = $dom->getElementsByTagName('path');
+        foreach ($path as $el) {
+            $el->removeAttribute('id');
+        }
+        $circle = $dom->getElementsByTagName('circle');
+        foreach ($circle as $el) {
+            $el->removeAttribute('id');
+        }
+        $use = $dom->getElementsByTagName('use');
+        foreach ($use as $el) {
+            $el->removeAttribute('id');
+        }
+        $polygon = $dom->getElementsByTagName('polygon');
+        foreach ($polygon as $el) {
+            $el->removeAttribute('id');
+        }
+        $ellipse = $dom->getElementsByTagName('ellipse');
+        foreach ($ellipse as $el) {
+            $el->removeAttribute('id');
+        }
+
+        $string = $dom->saveXML($dom->documentElement);
+
+        // remove empty lines
+        $string = preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n", $string);
+
+        $cls = array('svg-icon');
+        if (! empty($class)) {
+            $cls = array_merge($cls, explode(' ', $class));
+        }
+
+        return '<span class="'.implode(' ', $cls).'"><!--begin::Svg Icon | path:'.$filepath.'-->'.$string.'<!--end::Svg Icon--></span>';;
     }
 }
