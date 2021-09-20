@@ -70,9 +70,9 @@ class ThemeHelper
                 </div>";
     }
 
-    private static function menuIcon($menu)
+    private static function menuIcon($menu, $showBullet = true)
     {
-        $return = "<span class='menu-bullet'><span class='bullet bullet-dot'></span></span>";
+        $return = "";
         if (isset($menu['svg']) || isset($menu['icon'])) {
             if (isset($menu['svg'])) {
                 $icon = self::getSVG($menu['svg'], 'svg-icon-2');
@@ -81,6 +81,8 @@ class ThemeHelper
             }
 
             $return = "<span class='menu-icon'>{$icon}</span>";
+        } elseif ($showBullet) {
+            $return = "<span class='menu-bullet'><span class='bullet bullet-dot'></span></span>";
         }
 
         return $return;
@@ -96,7 +98,7 @@ class ThemeHelper
                     $subItems .= self::headerMenuItem($sub_menu);
                 }
 
-                $icon = self::menuIcon($menu);
+                $icon = self::menuIcon($menu, false);
                 $subMenuClass = "";
                 if (in_array(Route::currentRouteName(), collect($menu['sub_menu'])->pluck('link')->toArray())) {
                     $subMenuClass .= "here show";
@@ -120,7 +122,7 @@ class ThemeHelper
 
     private static function headerMenuItem($menu, $class = null): string
     {
-        $icon = self::menuIcon($menu);
+        $icon = self::menuIcon($menu, false);
         $activeClass = (Route::currentRouteName() === $menu['link'] ? "active" : "");
         $link = route($menu['link']);
 
