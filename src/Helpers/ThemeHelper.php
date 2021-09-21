@@ -6,6 +6,16 @@ use Illuminate\Support\Facades\Route;
 
 class ThemeHelper
 {
+    private static $icons = [
+        'edit' => 'assets/media/icons/duotune/art/art005.svg',
+        'delete' => 'assets/media/icons/duotune/general/gen027.svg',
+    ];
+
+    public static function getIcons($icon, $class)
+    {
+        return ThemeHelper::getSVG(self::$icons[$icon], $class);
+    }
+
     public static function asideMenu(): string
     {
         $items = "";

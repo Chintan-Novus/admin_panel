@@ -90,6 +90,10 @@
     $(document).ready(function () {
         @if(session('status'))
             toastr['success']("{{ session('status') }}");
+        @elseif(session('success'))
+            toastr['success']("{{ session('success') }}");
+        @elseif(session('error'))
+            toastr['error']("{{ session('error') }}");
         @endif
     })
 </script>
