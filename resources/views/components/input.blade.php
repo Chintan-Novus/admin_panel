@@ -10,6 +10,6 @@
     type="{{ $type }}"
     name="{{ $name }}"
     id="{{ $id }}"
-    placeholder="{{ $placeholder ?? '' }}"
+    placeholder="{{ ucfirst($placeholder) ?? '' }}"
     value="{{ $value ?? null }}" {!! $attributes->merge(['class' => 'form-control form-control-solid']) !!}
 />
