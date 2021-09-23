@@ -1,4 +1,4 @@
-@if (!empty($toolbarTitle) || !empty($toolbarButtons))
+@if (!empty($toolbarTitle) || !empty($toolbarButtons) || !empty($toolbarDeleteAction))
     <div class="toolbar" id="kt_toolbar">
         <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
 
@@ -16,23 +16,27 @@
             </div>
 
             {{-- Toolbar buttons --}}
-            @if (!empty($toolbarButtons))
+            @if (!empty($toolbarButtons) || !empty($toolbarDeleteAction))
                 <div class="d-flex align-items-center py-1">
-                    <div class="d-flex justify-content-end align-items-center d-none" datatable-toolbar="selected">
-                        <button type="button" class="btn btn-sm btn-light-danger me-3" datatable-select="delete_selected">
-                            Delete Selected (<span datatable-select="selected_count"></span>)
-                        </button>
-                        <form method="POST" action="{{ route('master.country.destroy') }}" id="multi_delete_form">
-                            @method('DELETE')
-                            @csrf
-                            <input type="hidden" name="selected_id" id="selected_id">
-                        </form>
-                    </div>
+                    @if (!empty($toolbarDeleteAction))
+                        <div class="d-flex justify-content-end align-items-center d-none" datatable-toolbar="selected">
+                            <button type="button" class="btn btn-sm btn-light-danger me-3" datatable-select="delete_selected">
+                                Delete Selected (<span datatable-select="selected_count"></span>)
+                            </button>
+                            <form method="POST" action="{{ $toolbarDeleteAction }}" id="multi_delete_form">
+                                @method('DELETE')
+                                @csrf
+                                <input type="hidden" name="selected_id" id="selected_id">
+                            </form>
+                        </div>
+                    @endif
 
-                    @foreach($toolbarButtons as $toolbarButton)
-                        <a href="{{ $toolbarButton['link'] }}"
-                           class="btn btn-sm {{ $toolbarButton['class'] }} me-2">{{ $toolbarButton['title'] }}</a>
-                    @endforeach
+                    @if (!empty($toolbarButtons))
+                        @foreach($toolbarButtons as $toolbarButton)
+                            <a href="{{ $toolbarButton['link'] }}"
+                               class="btn btn-sm {{ $toolbarButton['class'] }} me-2">{{ $toolbarButton['title'] }}</a>
+                        @endforeach
+                    @endif
                 </div>
             @endif
         </div>
