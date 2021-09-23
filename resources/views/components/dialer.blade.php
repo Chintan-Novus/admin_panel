@@ -44,21 +44,3 @@
     </button>
 </div>
 
-@push('scripts')
-    <script>
-        $(document).ready(function () {
-            // Dialer container element
-            var dialerElement = document.querySelector("#kt_dialer_example_1");
-
-            // Create dialer object and initialize a new instance
-            var dialerObject = new KTDialer(dialerElement, {
-                min: {{ $min }},
-                max: {{ $max }},
-                step: {{ $step }},
-                prefix: '$',
-                decimals: {{ $decimals }}
-            });
-        });
-    </script>
-@endpush
-
