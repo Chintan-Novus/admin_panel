@@ -1,24 +1,35 @@
-@props(['type' => 'date', 'name', 'value', 'placeholder', 'id'])
+@props([
+    'type' => 'date',
+    'name',
+    'value',
+    'placeholder',
+    'id'
+])
+
 @php
     if(empty($id)) {
         $id = $name;
     }
 @endphp
 
-<input
-    type="{{ $type }}"
-    name="{{ $name }}"
-    id="{{ $id }}"
-    placeholder="{{ $placeholder ?? '' }}"
-    value="{{ $value ?? null }}"
-    {!! $attributes->merge(['class' => 'form-control form-control-solid']) !!}
-/>
+<div class="position-relative d-flex align-items-center">
+    {!! ThemeHelper::getSVG('assets/media/icons/duotune/general/gen014.svg', 'svg-icon-2 position-absolute mx-4') !!}
+    <input
+            type="{{ $type }}"
+            name="{{ $name }}"
+            id="{{ $id }}"
+            placeholder="{{ $placeholder ?? '' }}"
+            value="{{ $value ?? null }}"
+            {!! $attributes->merge(['class' => 'form-control form-control-solid ps-12']) !!}
+    />
+</div>
+
 @push('scripts')
     <script>
         $(document).ready(function () {
-            $("#date").flatpickr({
-                enableTime: true,
-                dateFormat: "Y-m-d H:i",
+            $(`#{{ $id }}`).flatpickr({
+                enableTime: false,
+                dateFormat: "Y-m-d",
             });
         });
     </script>
