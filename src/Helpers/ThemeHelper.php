@@ -9,6 +9,7 @@ class ThemeHelper
     private static $icons = [
         'edit' => 'assets/media/icons/duotune/art/art005.svg',
         'delete' => 'assets/media/icons/duotune/general/gen027.svg',
+        'details' => 'assets/media/icons/duotune/arrows/arr064.svg',
     ];
 
     public static function getIcons($icon, $class)

@@ -22,6 +22,8 @@
     @endif
 
     {{-- Styles --}}
+    @stack('styles')
+
     @if (config('admin_panel.dark_mode') || Session::get('dark_mode'))
         @foreach(config('admin_panel.resources.css.dark') as $style)
             <link href="{{ asset($style) }}" rel="stylesheet" type="text/css"/>
@@ -31,8 +33,6 @@
             <link href="{{ asset($style) }}" rel="stylesheet" type="text/css"/>
         @endforeach
     @endif
-
-    @stack('styles')
 
 </head>
 @php
