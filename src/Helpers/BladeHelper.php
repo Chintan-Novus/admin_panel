@@ -18,14 +18,14 @@ class BladeHelper
         $nameArray = preg_split("/[\s,_-]+/", $name);
 
         switch (count($nameArray)) {
+            case 0:
+                $return = "N/A";
+                break;
             case 1:
                 $return = Str::substr($nameArray[0], 0, 2);
                 break;
-            case 2:
-                $return = Str::substr($nameArray[0], 0, 1) . Str::substr($nameArray[1], 0, 1);
-                break;
             default:
-                $return = "N/A";
+                $return = Str::substr($nameArray[0], 0, 1) . Str::substr($nameArray[1], 0, 1);
                 break;
         }
 
