@@ -1,4 +1,4 @@
-@props(['type' => 'text', 'name', 'value', 'placeholder', 'id'])
+@props(['type' => 'text', 'name', 'value' => null, 'placeholder' => null, 'id'])
 
 @php
     if(empty($id)) {
@@ -11,5 +11,5 @@
     name="{{ $name }}"
     id="{{ $id }}"
     placeholder="{{ ucfirst($placeholder) ?? '' }}"
-    value="{{ $value ?? null }}" {!! $attributes->merge(['class' => 'form-control form-control-solid']) !!}
+    value="{{ $value }}" {!! $attributes->merge(['class' => 'form-control form-control-solid']) !!}
 />
