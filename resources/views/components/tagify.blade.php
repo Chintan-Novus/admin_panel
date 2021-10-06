@@ -3,7 +3,6 @@
     'tags' => ["Ada", "Adenine", "Agda", "Agilent VEE"],
     'value',
     'placeholder',
-    'id',
     'inline' => true,
     'enabled' => false,
     'closeOnSelect' => false,
@@ -11,16 +10,9 @@
     'maxTags' => 100,
 ])
 
-@php
-    if(empty($id)) {
-        $id = $name;
-    }
-@endphp
-
 <input
         type="text"
         name="{{ $name }}"
-        id="{{ $id }}"
         placeholder="{{ $placeholder ?? '' }}"
         value="{{ $value ?? null }}" {!! $attributes->merge(['class' => 'form-control form-control-solid']) !!}
 />

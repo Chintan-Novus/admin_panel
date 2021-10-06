@@ -1,6 +1,5 @@
 @props([
     'name',
-    'id',
     'value',
     'min'=> 0,
     'max'=> 10000000,
@@ -8,12 +7,6 @@
     'prefix',
     'decimals'=> 2
 ])
-
-@php
-    if(empty($id)) {
-        $id = $name;
-    }
-@endphp
 
 <div class="position-relative w-md-300px"
      data-kt-dialer="true"

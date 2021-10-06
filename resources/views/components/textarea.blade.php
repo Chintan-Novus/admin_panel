@@ -1,14 +1,7 @@
-@props(['autosize' => 'true', 'name', 'value', 'placeholder', 'id', 'rows' => 3])
-
-@php
-    if(empty($id)) {
-        $id = $name;
-    }
-@endphp
+@props(['autosize' => 'true', 'name', 'value', 'placeholder', 'rows' => 3])
 
 <textarea
     name="{{ $name }}"
-    id="{{ $id }}"
     placeholder="{{ ucfirst($placeholder) ?? '' }}"
     rows="{{ $rows }}"
     {!! $attributes->merge(['class' => 'form-control form-control-solid']) !!}

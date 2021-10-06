@@ -1,15 +1,9 @@
-@props(['name', 'value', 'id'])
-@php
-    if(empty($id)) {
-        $id = $name;
-    }
-@endphp
+@props(['name', 'value'])
 
 <input
     type="checkbox"
     name="{{ $name }}"
-    id="{{ $id }}"
     value="{{ $value ?? '' }}"
-    {!! $attributes->merge(['class' => 'form-check-input h-20px w-30px']) !!}/>
+    {!! $attributes->merge(['class' => 'form-check-input']) !!}/>
 
 
