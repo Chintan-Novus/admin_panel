@@ -23,7 +23,7 @@
     <script>
         $(document).ready(function () {
             $(`#{{ $id }}`).flatpickr({
-                enableTime: {{ $enableTime }},
+                enableTime: @json($enableTime),
                 dateFormat: "Y-m-d",
             });
         });
