@@ -4,7 +4,8 @@
     'value',
     'placeholder',
     'id',
-    'enableTime' => false
+    'enableTime' => false,
+    'dateFormat' => 'Y-m-d'
 ])
 
 <div class="position-relative d-flex align-items-center">
@@ -24,7 +25,7 @@
         $(document).ready(function () {
             $(`#{{ $id }}`).flatpickr({
                 enableTime: @json($enableTime),
-                dateFormat: "Y-m-d",
+                dateFormat: @json($dateFormat),
             });
         });
     </script>
