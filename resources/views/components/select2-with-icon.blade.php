@@ -1,10 +1,14 @@
-@props(['name', 'id'])
+@props(['name', 'id', 'disabled' => false])
 
 <select
     name="{{ $name }}"
     id="{{ $id }}"
     data-control="select2"
-    {!! $attributes->merge(['class' => 'form-select form-select-solid']) !!}>
+    {!! $attributes->merge(['class' => 'form-select form-select-solid']) !!}
+    @if($disabled)
+        disabled
+    @endif
+>
     {{ $slot }}
 </select>
 
