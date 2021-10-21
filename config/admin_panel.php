@@ -70,8 +70,8 @@ return [
         ]
     ],
     'routes' => [
-        'prefix' => '',
+        'prefix' => 'admin',
         'middleware' => 'web',
-        'guard' => 'web',
+        'guard' => 'user',
     ],
 ];
