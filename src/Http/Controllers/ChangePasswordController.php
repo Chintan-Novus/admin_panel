@@ -19,7 +19,7 @@ class ChangePasswordController
         $password = $request->input('password');
 
         // Update profile
-        $user = Auth::user();
+        $user = Auth::guard(config('admin_panel.routes.guard'))->user();
         $user->password = Hash::make($password);
         $user->save();
 

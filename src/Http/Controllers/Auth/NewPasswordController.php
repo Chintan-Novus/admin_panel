@@ -11,6 +11,11 @@ use Illuminate\Validation\Rules;
 
 class NewPasswordController
 {
+    protected function guard()
+    {
+        return Auth::guard(config('admin_panel.routes.guard'));
+    }
+
     public function create(Request $request)
     {
         return view('admin_panel::auth.reset-password', ['request' => $request]);

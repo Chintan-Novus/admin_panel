@@ -72,5 +72,6 @@ return [
     'routes' => [
         'prefix' => '',
         'middleware' => 'web',
+        'guard' => 'web',
     ],
 ];

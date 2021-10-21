@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\Password;
 
 class PasswordResetLinkController
 {
+    protected function guard()
+    {
+        return Auth::guard(config('admin_panel.routes.guard'));
+    }
+
     public function create()
     {
         return view('admin_panel::auth.forgot-password');

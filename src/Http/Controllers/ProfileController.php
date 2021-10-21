@@ -20,7 +20,7 @@ class ProfileController
         $email = $request->input('email');
 
         // Update profile
-        $user = Auth::user();
+        $user = Auth::guard(config('admin_panel.routes.guard'))->user();
         $user->name = $name;
         $user->email = $email;
         $user->save();
