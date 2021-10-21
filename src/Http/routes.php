@@ -1,6 +1,6 @@
 <?php
 
-Route::middleware('web')->group(function () {
+Route::middleware(config('admin_panel.routes.middleware'))->prefix(config('admin_panel.routes.prefix'))->group(function () {
     Route::view('', 'admin_panel::welcome')->name('welcome');
 
     // Guest route

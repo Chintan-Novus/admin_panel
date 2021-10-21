@@ -68,5 +68,9 @@ return [
                 'link' => '#'
             ]
         ]
-    ]
+    ],
+    'routes' => [
+        'prefix' => '',
+        'middleware' => 'web',
+    ],
 ];
