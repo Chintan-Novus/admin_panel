@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'support_dark_mode' => false,
     'dark_mode' => false,
     'resources' => [
         'favicon' => 'assets/media/logos/favicon.ico',

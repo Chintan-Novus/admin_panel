@@ -72,24 +72,26 @@
                                     </a>
                                 </form>
                             </div>
-                            <div class="separator my-2"></div>
-                            <div class="menu-item px-5">
-                                <div class="menu-content px-5">
-                                    <form method="POST" action="{{ route('account.profile.update.dark_mode') }}">
-                                        @method('PUT')
-                                        @csrf
-                                        <label
-                                            class="form-check form-switch form-check-custom form-check-solid pulse pulse-success"
-                                            for="kt_user_menu_dark_mode_toggle">
+                            @if(config('admin_panel.support_dark_mode'))
+                                <div class="separator my-2"></div>
+                                <div class="menu-item px-5">
+                                    <div class="menu-content px-5">
+                                        <form method="POST" action="{{ route('account.profile.update.dark_mode') }}">
+                                            @method('PUT')
+                                            @csrf
+                                            <label
+                                                class="form-check form-switch form-check-custom form-check-solid pulse pulse-success"
+                                                for="kt_user_menu_dark_mode_toggle">
 
-                                            <input class="form-check-input w-30px h-20px" type="checkbox" value="true" name="dark_mode" onchange="event.preventDefault();this.closest('form').submit();"
-                                                   {{ (Session::get('dark_mode')) ? "checked" : "" }}/>
-                                            <span class="pulse-ring ms-n1"></span>
-                                            <span class="form-check-label text-gray-600 fs-7">Dark Mode</span>
-                                        </label>
-                                    </form>
+                                                <input class="form-check-input w-30px h-20px" type="checkbox" value="true" name="dark_mode" onchange="event.preventDefault();this.closest('form').submit();"
+                                                       {{ (Session::get('dark_mode')) ? "checked" : "" }}/>
+                                                <span class="pulse-ring ms-n1"></span>
+                                                <span class="form-check-label text-gray-600 fs-7">Dark Mode</span>
+                                            </label>
+                                        </form>
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
                         </div>
                     </div>
                     <div class="d-flex align-items-center d-lg-none ms-2 me-n3" title="Show header menu">
