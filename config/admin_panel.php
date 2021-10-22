@@ -29,6 +29,11 @@ return [
         'logo' => [
             'light' => 'assets/media/logos/logo-1.svg',
             'dark' => 'assets/media/logos/logo-1-dark.svg',
+        ],
+        'auth' => [
+            'background_color' => 'bg-body', // applied to body class: bg-body | bg-dark
+            'background_image' => 'assets/media/illustrations/sketchy-1/14.png',
+            'logo' => 'assets/media/logos/logo-1.svg',
         ]
     ],
     'menu' => [
