@@ -25,7 +25,9 @@
             ],
             "aliases": {
                 "ThemeHelper": "Novuslogics\\AdminPanel\\Helpers\\ThemeHelper",
-                "BladeHelper": "Novuslogics\\AdminPanel\\Helpers\\BladeHelper"
+                "BladeHelper": "Novuslogics\\AdminPanel\\Helpers\\BladeHelper",
+                "Helper": "Novuslogics\\AdminPanel\\Helpers\\Helper",
+                "TableHelper": "Novuslogics\\AdminPanel\\Helpers\\TableHelper"
             }
         }
     }

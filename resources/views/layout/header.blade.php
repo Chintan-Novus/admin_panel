@@ -29,8 +29,8 @@
                 <div class="d-flex align-items-stretch flex-shrink-0">
                     <div class="d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
                         <x-admin_panel::symbol class="cursor-pointer symbol-30px symbol-md-40px" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
-                            @if ($helper::fileExists('public/uploads/user/avatar/', Auth::user()->avatar))
-                                <x-slot name="avatar" style="background-image:url('{!! $helper::glideImage('user/avatar/'.Auth::user()->avatar, 40) !!}')"></x-slot>
+                            @if (Helper::fileExists('public/uploads/user/avatar/', Auth::user()->avatar))
+                                <x-slot name="avatar" style="background-image:url('{!! Helper::glideImage('user/avatar/'.Auth::user()->avatar, 40) !!}')"></x-slot>
                             @else
                                 <x-slot name="label" class="bg-info text-inverse-info">{{ Auth::user()->full_name }}</x-slot>
                             @endif
@@ -42,8 +42,8 @@
                             <div class="menu-item px-3">
                                 <div class="menu-content d-flex align-items-center px-3">
                                     <x-admin_panel::symbol class="symbol-50px me-5">
-                                        @if ($helper::fileExists('public/uploads/user/avatar/', Auth::user()->avatar))
-                                            <x-slot name="avatar" style="background-image:url('{!! $helper::glideImage('user/avatar/'.Auth::user()->avatar, 50) !!}')"></x-slot>
+                                        @if (Helper::fileExists('public/uploads/user/avatar/', Auth::user()->avatar))
+                                            <x-slot name="avatar" style="background-image:url('{!! Helper::glideImage('user/avatar/'.Auth::user()->avatar, 50) !!}')"></x-slot>
                                         @else
                                             <x-slot name="label" class="bg-info text-inverse-info">{{ Auth::user()->full_name }}</x-slot>
                                         @endif

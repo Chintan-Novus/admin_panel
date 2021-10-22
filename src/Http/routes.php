@@ -24,8 +24,8 @@ Route::middleware(config('admin_panel.routes.middleware'))->prefix(config('admin
         });
     });
 
-// Auth route
-    Route::middleware('auth'.config('admin_panel.routes.guard'))->group(function () {
+    // Auth route
+    Route::middleware('auth:'.config('admin_panel.routes.guard'))->group(function () {
         // Logout
         Route::post('/logout', [Novuslogics\AdminPanel\Http\Controllers\Auth\AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
