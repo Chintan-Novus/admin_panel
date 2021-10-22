@@ -34,7 +34,7 @@
             <div class="row mb-6">
                 <x-admin_panel::label for="confirm_password" value="Confirm Password" class="required" />
                 <div class="col-lg-10 fv-row">
-                    <x-admin_panel::input type="password" name="password_confirmation" placeholder="Confirm Password"/>
+                    <x-admin_panel::input type="password" name="password_confirmation" placeholder="Confirm password"/>
                 </div>
             </div>
 
