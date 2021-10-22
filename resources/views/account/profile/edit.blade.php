@@ -17,13 +17,13 @@
                 </div>
             </div>
             <div class="row mb-6">
-                <x-admin_panel::label for="first_name" value="first_name" class="required" />
+                <x-admin_panel::label for="first_name" value="First name" class="required" />
                 <div class="col-lg-10 fv-row">
                     <x-admin_panel::input name="first_name" placeholder="First name" :value="Auth::user()->first_name"/>
                 </div>
             </div>
             <div class="row mb-6">
-                <x-admin_panel::label for="last_name" value="last_name" class="required" />
+                <x-admin_panel::label for="last_name" value="Last name" />
                 <div class="col-lg-10 fv-row">
                     <x-admin_panel::input name="last_name" placeholder="Last name" :value="Auth::user()->last_name"/>
                 </div>
@@ -60,13 +60,6 @@
                                     }
                                 }
                             },
-                            'last_name': {
-                                validators: {
-                                    notEmpty: {
-                                        message: 'The last name is required'
-                                    }
-                                }
-                            }
                         },
                         plugins: {
                             trigger: new FormValidation.plugins.Trigger(),
