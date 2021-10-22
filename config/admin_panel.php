@@ -74,5 +74,6 @@ return [
         'prefix' => 'admin',
         'middleware' => 'web',
         'guard' => 'admin',
+        'broker' => 'admins',
     ],
 ];

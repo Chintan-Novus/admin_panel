@@ -11,9 +11,9 @@ use Illuminate\Validation\Rules;
 
 class NewPasswordController
 {
-    protected function guard()
+    public function broker(): \Illuminate\Contracts\Auth\PasswordBroker
     {
-        return Auth::guard(config('admin_panel.routes.guard'));
+        return Password::broker(config('admin_panel.routes.broker'));
     }
 
     public function create(Request $request)
@@ -32,7 +32,7 @@ class NewPasswordController
         // Here we will attempt to reset the user's password. If it is successful we
         // will update the password on an actual user model and persist it to the
         // database. Otherwise, we will parse the error and return the response.
-        $status = Password::reset(
+        $status = $this->broker()->reset(
             $request->only('email', 'password', 'password_confirmation', 'token'),
             function ($user) use ($request) {
                 $user->forceFill([
@@ -48,8 +48,8 @@ class NewPasswordController
         // the application's home authenticated view. If there is an error we can
         // redirect them back to where they came from with their error message.
         return $status == Password::PASSWORD_RESET
-                    ? redirect()->route('login')->with('status', __($status))
-                    : back()->withInput($request->only('email'))
-                            ->withErrors(['email' => __($status)]);
+            ? redirect()->route('login')->with('status', __($status))
+            : back()->withInput($request->only('email'))
+                ->withErrors(['email' => __($status)]);
     }
 }
