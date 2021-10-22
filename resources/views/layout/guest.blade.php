@@ -42,7 +42,7 @@
         <div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
 
             <a href="{{ route('welcome') }}" class="mb-12">
-                <img alt="Logo" src="{{ asset('assets/media/logos/logo-1.svg') }}" class="h-40px" />
+                <img alt="Logo" src="{{ asset(config('admin_panel.resources.logo.light')) }}" class="h-40px" />
             </a>
 
             <div class="w-lg-500px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">

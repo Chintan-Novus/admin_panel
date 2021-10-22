@@ -47,8 +47,8 @@
                     <div class="d-flex align-items-center justify-content-between">
                         <div class="d-flex align-items-center flex-equal">
                             <a href="{{ route('welcome') }}">
-                                <img alt="Logo" src="{{ asset('assets/media/logos/logo-1-dark.svg') }}" class="logo-default h-25px h-lg-30px" />
-                                <img alt="Logo" src="{{ asset('assets/media/logos/logo-1.svg') }}" class="logo-sticky h-20px h-lg-25px" />
+                                <img alt="Logo" src="{{ asset(config('admin_panel.resources.logo.dark')) }}" class="logo-default h-25px h-lg-30px" />
+                                <img alt="Logo" src="{{ asset(config('admin_panel.resources.logo.light')) }}" class="logo-sticky h-20px h-lg-25px" />
                             </a>
                         </div>
                         <div class="flex-equal text-end ms-1">

@@ -26,6 +26,10 @@ return [
             'assets/plugins/global/plugins.bundle.js',
             'assets/js/scripts.bundle.js',
         ],
+        'logo' => [
+            'light' => 'assets/media/logos/logo-1.svg',
+            'dark' => 'assets/media/logos/logo-1-dark.svg',
+        ]
     ],
     'menu' => [
         'aside' => [
