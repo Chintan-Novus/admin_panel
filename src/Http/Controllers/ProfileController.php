@@ -16,12 +16,14 @@ class ProfileController
     public function update(ProfileRequest $request): \Illuminate\Http\RedirectResponse
     {
         #Request params
-        $name = $request->input('name');
+        $first_name = $request->input('first_name');
+        $last_name = $request->input('last_name');
         $email = $request->input('email');
 
         // Update profile
         $user = Auth::guard(config('admin_panel.routes.guard'))->user();
-        $user->name = $name;
+        $user->first_name = $first_name;
+        $user->last_name = $last_name;
         $user->email = $email;
         $user->save();
 

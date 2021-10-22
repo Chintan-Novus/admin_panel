@@ -17,9 +17,15 @@
                 </div>
             </div>
             <div class="row mb-6">
-                <x-admin_panel::label for="name" value="name" class="required" />
+                <x-admin_panel::label for="first_name" value="first_name" class="required" />
                 <div class="col-lg-10 fv-row">
-                    <x-admin_panel::input name="name" placeholder="Name" :value="Auth::user()->name"/>
+                    <x-admin_panel::input name="first_name" placeholder="first_name" :value="Auth::user()->first_name"/>
+                </div>
+            </div>
+            <div class="row mb-6">
+                <x-admin_panel::label for="last_name" value="last_name" class="required" />
+                <div class="col-lg-10 fv-row">
+                    <x-admin_panel::input name="last_name" placeholder="last_name" :value="Auth::user()->last_name"/>
                 </div>
             </div>
 
@@ -47,10 +53,17 @@
                                     }
                                 }
                             },
-                            'name': {
+                            'first_name': {
                                 validators: {
                                     notEmpty: {
-                                        message: 'The password is required'
+                                        message: 'The first name is required'
+                                    }
+                                }
+                            },
+                            'last_name': {
+                                validators: {
+                                    notEmpty: {
+                                        message: 'The last name is required'
                                     }
                                 }
                             }
