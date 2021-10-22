@@ -73,6 +73,6 @@ return [
     'routes' => [
         'prefix' => 'admin',
         'middleware' => 'web',
-        'guard' => 'user',
+        'guard' => 'admin',
     ],
 ];
