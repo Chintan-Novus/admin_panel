@@ -10,7 +10,7 @@
 
 @php
     $id = $id ?? $name;
-    $backgroundImage = (!empty($path) && !empty($value) && $helper::fileExists('public/uploads/'.$path, $value)) ? $helper::glideImage($path. $value, 125, 125) : asset('assets/media/avatars/blank.png');
+    $backgroundImage = (!empty($path) && !empty($value) && Helper::fileExists('public/uploads/'.$path, $value)) ? Helper::glideImage($path. $value, 125, 125) : asset('assets/media/avatars/blank.png');
 @endphp
 
 <div class="image-input image-input-empty" data-kt-image-input="true"
