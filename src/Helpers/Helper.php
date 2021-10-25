@@ -17,17 +17,20 @@ class Helper
         return Storage::exists($filePath);
     }
 
-    public static function glideImage($path, $width = 100, $height = null): string
+    public static function glideImage($path, $width = 100, $height = null, $fit = "contain"): string
     {
         $isSVG = (strpos($path, '.svg') > -1);
 
-        if (!$isSVG && $width) {
-            $path .= "?w={$width}";
-        }
-        if (!$isSVG && $height) {
-            $path .= "?h={$height}";
+        $data = [];
+
+        if (!$isSVG) {
+            $data = [
+                'w' => $width,
+                'h' => $height,
+                'fit' => $fit,
+            ];
         }
 
-        return route('image.show', $path);
+        return route('image.show', $path."?".http_build_query($data));
     }
 }

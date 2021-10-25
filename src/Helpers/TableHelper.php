@@ -17,8 +17,8 @@ class TableHelper
     public static function avatar($title, $link, $avatar, $path, $description = null): string
     {
         $shortName = BladeHelper::symbolName($title);
-        $avatarURL = Helper::glideImage("$path/$avatar", null, 50);
-        $symbol = Helper::fileExists('public/uploads/' . $path . '/', $avatar) ? "<img src='{$avatarURL}' class='h-50px' />" : "<div class='symbol-label fs-2 fw-bold text-success'>{$shortName}</div>";
+        $avatarURL = Helper::glideImage("$path/$avatar", 100, 100, 'fill');
+        $symbol = Helper::fileExists('public/uploads/' . $path . '/', $avatar) ? "<img src='{$avatarURL}' class='h-50px w-50px' />" : "<div class='symbol-label fs-2 fw-bold text-success'>{$shortName}</div>";
 
         $descriptionSpan = (!empty($description)) ? "<span>$description</span>" : "";
 
