@@ -14,15 +14,15 @@ class TableHelper
                 </div>";
     }
 
-    public static function avatar($title, $link, $avatar, $path, $description = null): string
+    public static function avatar($title, $link, $avatar, $path, $description = null, $size = "50"): string
     {
         $shortName = BladeHelper::symbolName($title);
-        $avatarURL = Helper::glideImage("$path/$avatar", 100, 100, 'fill');
-        $symbol = Helper::fileExists('public/uploads/' . $path . '/', $avatar) ? "<img src='{$avatarURL}' class='h-50px w-50px' />" : "<div class='symbol-label fs-2 fw-bold text-success'>{$shortName}</div>";
+        $avatarURL = Helper::glideImage("$path/$avatar", $size, $size, 'fill');
+        $symbol = Helper::fileExists('public/uploads/' . $path . '/', $avatar) ? "<img src='{$avatarURL}' class='h-{$size}px w-{$size}px' />" : "<div class='symbol-label fs-2 fw-bold text-success'>{$shortName}</div>";
 
         $descriptionSpan = (!empty($description)) ? "<span>$description</span>" : "";
 
-        return "<div class='symbol symbol-50px overflow-hidden me-3'>
+        return "<div class='symbol symbol-{$size}px overflow-hidden me-3'>
                     <a href='$link'>
                         {$symbol}
                     </a>
@@ -33,6 +33,20 @@ class TableHelper
                     </a>
                     {$descriptionSpan}
                 </div>";
+    }
+
+    public static function onlyAvatar($title, $link, $avatar, $path, $class = null, $size = "50"): string
+    {
+        $shortName = BladeHelper::symbolName($title);
+        $avatarURL = Helper::glideImage("$path/$avatar", $size, $size, 'fill');
+        $symbol = Helper::fileExists('public/uploads/' . $path . '/', $avatar) ? "<img src='{$avatarURL}' class='h-{$size}px w-{$size}px' />" : "<div class='symbol-label fs-2 fw-bold text-success'>{$shortName}</div>";
+
+        return "<div class='symbol symbol-{$size}px overflow-hidden me-3 {$class}'>
+                    <a href='$link'>
+                        {$symbol}
+                    </a>
+                </div>
+                ";
     }
 
     public static function link($title, $link): string
