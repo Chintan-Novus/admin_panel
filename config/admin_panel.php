@@ -86,4 +86,9 @@ return [
         'broker' => 'admins',
         'redirect_auth' => '/admin/dashboard'
     ],
+    'developer' => [
+        'show' => true,
+        'name' => 'Novus Logics',
+        'website' => 'https://novuslogics.com',
+    ],
 ];
