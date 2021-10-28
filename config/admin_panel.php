@@ -37,6 +37,8 @@ return [
         ]
     ],
     'menu' => [
+        'aside_minimize' => 'off',
+        'aside_background' => 'aside-dark',  // applied to aside class: aside-light | bg-dark
         'aside' => [
             [
                 'title' => 'General'

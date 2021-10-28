@@ -39,10 +39,10 @@
     $toolbarEnabled = !empty($toolbarTitle) || !empty($toolbarButtons);
 @endphp
 
-<body id="kt_body" class="page-loading-enabled page-loading header-fixed header-tablet-and-mobile-fixed aside-enabled aside-fixed {{ ($toolbarEnabled) ? "toolbar-enabled toolbar-fixed" : "" }}" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
+<body id="kt_body" data-kt-aside-minimize="{{ config('admin_panel.menu.aside_minimize') }}" class="page-loading-enabled page-loading header-fixed header-tablet-and-mobile-fixed aside-enabled aside-fixed {{ ($toolbarEnabled) ? "toolbar-enabled toolbar-fixed" : "" }}" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
 
 {{-- Loader --}}
-{{--@include('admin_panel::layout.loader')--}}
+@include('admin_panel::layout.loader')
 
 <div class="d-flex flex-column flex-root">
     <div class="page d-flex flex-row flex-column-fluid">
