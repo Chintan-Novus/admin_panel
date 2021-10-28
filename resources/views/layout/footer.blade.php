@@ -5,7 +5,7 @@
             <a href="https://novuslogics.com" target="_blank" class="text-gray-800 text-hover-primary">{{ config('app.name') }}</a>
         </div>
         <div class="text-dark order-2 order-md-1">
-            <span class="text-muted fw-bold me-1">Developed with <i class="bi bi-heart-fill text-danger"></i> at Novus Logics</span>
+            <span class="text-muted fw-bold me-1">Developed with <i class="bi bi-heart-fill text-danger animation-blink"></i> at Novus Logics</span>
         </div>
         {!! ThemeHelper::footerMenu() !!}
     </div>
