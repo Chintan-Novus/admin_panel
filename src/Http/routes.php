@@ -4,7 +4,7 @@ Route::middleware(config('admin_panel.routes.middleware'))->prefix(config('admin
     Route::view('', 'admin_panel::welcome')->name('welcome');
 
     // Guest route
-    Route::middleware('guest')->group(function () {
+    Route::middleware('guest:'.config('admin_panel.routes.guard'))->group(function () {
         // Login
         Route::prefix('login')->group(function () {
             Route::get('', [Novuslogics\AdminPanel\Http\Controllers\Auth\AuthenticatedSessionController::class, 'create'])->name('login');
