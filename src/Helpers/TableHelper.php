@@ -22,7 +22,7 @@ class TableHelper
 
         $descriptionSpan = (!empty($description)) ? "<span>$description</span>" : "";
 
-        return "<div class='symbol symbol-circle symbol-50px overflow-hidden me-3'>
+        return "<div class='symbol symbol-50px overflow-hidden me-3'>
                     <a href='$link'>
                         {$symbol}
                     </a>
