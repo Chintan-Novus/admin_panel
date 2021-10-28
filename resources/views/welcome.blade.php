@@ -52,7 +52,7 @@
                             </a>
                         </div>
                         <div class="flex-equal text-end ms-1">
-                            @auth
+                            @auth(config('admin_panel.routes.guard'))
                                 <a href="{{ route('dashboard') }}" class="btn btn-success">Dashboard</a>
                             @else
                                 <a href="{{ route('login') }}" class="btn btn-success">Sign In</a>
