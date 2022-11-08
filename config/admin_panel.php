@@ -86,7 +86,10 @@ return [
         'middleware' => 'web',
         'guard' => 'admin',
         'broker' => 'admins',
-        'redirect_auth' => '/admin/dashboard'
+        'redirect_auth' => '/admin/dashboard',
+        'redirect' => [
+            'login' => 'dashboard'
+        ]
     ],
     'developer' => [
         'show' => true,

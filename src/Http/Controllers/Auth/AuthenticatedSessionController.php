@@ -21,7 +21,7 @@ class AuthenticatedSessionController
 
         $request->session()->put('dark_mode', false);
 
-        return redirect()->intended(route('dashboard'));
+        return redirect()->intended(route(config('admin_panel.routes.redirect.login')));
     }
 
     public function destroy(Request $request)
