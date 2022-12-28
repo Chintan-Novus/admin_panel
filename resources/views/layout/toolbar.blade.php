@@ -8,9 +8,9 @@
                  class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
                 <h1 class="d-flex align-items-center text-dark fw-bolder fs-3 my-1">
                     {{ ucwords($toolbarTitle) }}
-                    @if (isset($toolbarDesscription))
+                    @if (isset($toolbarDescription))
                         <span class="h-20px border-gray-200 border-start ms-3 mx-2"></span>
-                        <small class="text-muted fs-7 fw-bold my-1 ms-1">{{ $toolbarDesscription }}</small>
+                        <small class="text-muted fs-7 fw-bold my-1 ms-1">{{ $toolbarDescription }}</small>
                     @endif
                 </h1>
             </div>
