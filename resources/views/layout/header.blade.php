@@ -58,17 +58,17 @@
                             </div>
                             <div class="separator my-2"></div>
                             <div class="menu-item px-5">
-                                <a href="{{ route('account.profile.edit') }}" class="menu-link px-5">My Profile</a>
+                                <a href="{{ route('account.profile.edit') }}" class="menu-link px-5">{{ __('My Profile') }}</a>
                             </div>
                             <div class="separator my-2"></div>
                             <div class="menu-item px-5 my-1">
-                                <a href="{{ route('account.change_password.edit') }}" class="menu-link px-5">Change Password</a>
+                                <a href="{{ route('account.change_password.edit') }}" class="menu-link px-5">{{ __('Change Password') }}</a>
                             </div>
                             <div class="menu-item px-5">
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
                                     <a href="{{ route('logout') }}" class="menu-link px-5" onclick="event.preventDefault();this.closest('form').submit();">
-                                        Sign Out
+                                        {{ __('Sign Out') }}
                                     </a>
                                 </form>
                             </div>

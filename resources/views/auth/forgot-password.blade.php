@@ -3,8 +3,10 @@
           id="forgot_password_form">
         @csrf
         <div class="text-center mb-10">
-            <h1 class="text-dark mb-3">Forgot Password ?</h1>
-            <div class="text-gray-400 fw-bold fs-4">Enter your email to reset your password.</div>
+            <h1 class="text-dark mb-3">{{ __('Forgot Password') }}?</h1>
+            <div class="text-gray-400 fw-bold fs-4">
+                {{ __('Enter your email to reset your password.') }}
+            </div>
         </div>
 
         <!-- Validation Errors -->
@@ -12,7 +14,7 @@
 
         <div class="fv-row mb-10">
             <x-admin_panel::label for="email" :value="__('Email')" class="required"/>
-            <x-admin_panel::input type="email" name="email" :value="old('email')" placeholder="Email" autofocus autocomplete="off"/>
+            <x-admin_panel::input type="email" name="email" :value="old('email')" placeholder="{{ __('Email') }}" autofocus autocomplete="off"/>
         </div>
         <div class="text-center">
             <x-admin_panel::button class="btn-primary" id="submit_btn">{{ __('Email Password Reset Link') }}</x-admin_panel::button>

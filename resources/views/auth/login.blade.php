@@ -2,7 +2,7 @@
     <form method="POST" action="{{ route('login') }}" class="form w-100" novalidate="novalidate" id="login_form">
         @csrf
         <div class="text-center mb-10">
-            <h1 class="text-dark mb-3">Sign In to {{ config('app.name') }}</h1>
+            <h1 class="text-dark mb-3">{{ __('Sign In to') }} {{ config('app.name') }}</h1>
         </div>
 
         <!-- Validation Errors -->
@@ -10,17 +10,19 @@
 
         <div class="fv-row mb-10">
             <x-admin_panel::label for="email" :value="__('Email')" class="required col-lg-4" />
-            <x-admin_panel::input type="email" name="email" :value="old('email')" placeholder="Email" autofocus autocomplete="off" />
+            <x-admin_panel::input type="email" name="email" :value="old('email')" placeholder="{{ __('Email') }}" autofocus autocomplete="off" />
         </div>
         <div class="fv-row mb-10">
             <div class="d-flex flex-stack mb-2">
                 <x-admin_panel::label for="password" :value="__('Password')" class="required col-lg-4" />
-                <a href="{{ route('password.request') }}" class="link-primary fs-6 fw-bolder">Forgot Password?</a>
+                <a href="{{ route('password.request') }}" class="link-primary fs-6 fw-bolder">
+                    {{ __('Forgot Password') }}?
+                </a>
             </div>
-            <x-admin_panel::input type="password" name="password" placeholder="Password" autocomplete="current-password" />
+            <x-admin_panel::input type="password" name="password" placeholder="{{ __('Password') }}" autocomplete="current-password" />
         </div>
         <div class="text-center">
-            <x-admin_panel::button class="btn-primary" id="submit_btn">Sign In</x-admin_panel::button>
+            <x-admin_panel::button class="btn-primary" id="submit_btn">{{ __('Sign In') }}</x-admin_panel::button>
         </div>
     </form>
 

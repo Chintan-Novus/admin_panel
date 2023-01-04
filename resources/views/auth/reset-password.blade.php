@@ -7,10 +7,10 @@
         <x-admin_panel::input type="hidden" name="token" :value="$request->route('token')"/>
 
         <div class="text-center mb-10">
-            <h1 class="text-dark mb-3">Setup New Password</h1>
+            <h1 class="text-dark mb-3">{{ __('Setup New Password') }}</h1>
             <div class="text-gray-400 fw-bold fs-4">
-                Already have reset your password ?
-                <a href="{{ route('login') }}" class="link-primary fw-bolder">{{ __('Log in') }} here</a>
+                {{ __('Already have reset your password') }} ?
+                <a href="{{ route('login') }}" class="link-primary fw-bolder">{{ __('Log in') }} {{ __('here') }}</a>
             </div>
         </div>
 
@@ -19,14 +19,14 @@
 
         <div class="fv-row mb-10">
             <x-admin_panel::label for="email" value="Email" class="required col-lg-6"/>
-            <x-admin_panel::input type="email" name="email" placeholder="Email" :value="old('email', $request->email)" readonly/>
+            <x-admin_panel::input type="email" name="email" placeholder="{{ __('Email') }}" :value="old('email', $request->email)" readonly/>
         </div>
 
         <div class="mb-10 fv-row" data-kt-password-meter="true">
             <div class="mb-1">
                 <x-admin_panel::label for="password" value="Password" class="required col-lg-6"/>
                 <div class="position-relative mb-3">
-                    <x-admin_panel::input type="password" name="password" placeholder="Password" autofocus/>
+                    <x-admin_panel::input type="password" name="password" placeholder="{{ __('Password') }}" autofocus/>
                     <span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2"
                           data-kt-password-meter-control="visibility">
                         <i class="bi bi-eye-slash fs-2"></i>
@@ -44,7 +44,7 @@
         </div>
         <div class="fv-row mb-10">
             <x-admin_panel::label for="password_confirmation" value="Confirm Password" class="required col-lg-6"/>
-            <x-admin_panel::input type="password" name="password_confirmation" placeholder="Confirm password"/>
+            <x-admin_panel::input type="password" name="password_confirmation" placeholder="{{ __('Confirm password') }}"/>
         </div>
         <div class="text-center">
             <x-admin_panel::button class="btn-primary" id="submit_btn">{{ __('Reset Password') }}</x-admin_panel::button>

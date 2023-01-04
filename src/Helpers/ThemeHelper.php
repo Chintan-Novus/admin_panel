@@ -36,11 +36,12 @@ class ThemeHelper
                 }
 
                 $iconBullet = self::menuIcon($menu);
+                $title = __($menu['title']);
 
                 $items .= "<div class='menu-item menu-accordion {$subMenuClass}' data-kt-menu-trigger='click'>
                                 <span class='menu-link'>
                                     $iconBullet
-                                    <span class='menu-title'>{$menu['title']}</span>
+                                    <span class='menu-title'>{$title}</span>
                                     <span class='menu-arrow'></span>
                                 </span>
                                 <div class='menu-sub menu-sub-accordion menu-active-bg {$subMenuActiveClass}'>
