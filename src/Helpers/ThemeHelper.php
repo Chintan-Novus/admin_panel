@@ -74,8 +74,13 @@ class ThemeHelper
         $activeClass = (Route::currentRouteName() === $menu['link'] ? "active" : "");
         $link = route($menu['link']);
 
+        $target = "_self";
+        if (isset($menu['target']) && !empty($menu['target'])) {
+            $target = $menu['target'];
+        }
+
         return "<div class='menu-item'>
-                    <a class='menu-link {$activeClass}' href='{$link}'>
+                    <a class='menu-link {$activeClass}' href='{$link}' target='$target'>
                         {$iconBullet}
                         <span class='menu-title'>{$menu['title']}</span>
                     </a>
@@ -138,8 +143,13 @@ class ThemeHelper
         $activeClass = (Route::currentRouteName() === $menu['link'] ? "active" : "");
         $link = route($menu['link']);
 
+        $target = "_self";
+        if (isset($menu['target']) && !empty($menu['target'])) {
+            $target = $menu['target'];
+        }
+
         return "<div class='menu-item {$class}'>
-                    <a class='menu-link py-3 {$activeClass}' href='{$link}'>
+                    <a class='menu-link py-3 {$activeClass}' href='{$link}' target='$target'>
                         {$icon}
                         <span class='menu-title'>{$menu['title']}</span>
                     </a>
